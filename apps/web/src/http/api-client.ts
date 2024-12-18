@@ -13,7 +13,7 @@ export const api = ky.create({
         if (typeof window === 'undefined') {
           const { cookies: serverCookies } = await import('next/headers')
 
-          cookieStore = serverCookies
+          cookieStore = await serverCookies
         }
         const token = getCookie('token', { cookies: cookieStore })
 
